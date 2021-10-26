@@ -1,0 +1,13 @@
+.label {display: inline;
+        font-family: Nunito, sans-serif;
+        color: #1a4c6d;}
+#progress {display: inline;
+           float: right;
+           font-family: Nunito, sans-serif;
+           color: #1a4c6d;}
+#progressBar {background-color: #26c2eb;}
+.progress {background-color: #1a4c6d;
+           height: 25px;
+           width: 300px;
+           border-radius: .75rem;}
+.progressTracker {width: 300px;}
