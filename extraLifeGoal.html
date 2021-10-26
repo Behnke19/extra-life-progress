@@ -1,0 +1,76 @@
+
+
+</<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,600i" rel="stylesheet">
+    <style>
+       .label {display: inline;
+               font-family: Nunito, sans-serif;
+               color: #1a4c6d;}
+       #progress {display: inline;
+                  float: right;
+                  font-family: Nunito, sans-serif;
+                  color: #1a4c6d;}
+       #progressBar {background-color: #26c2eb;}
+       .progress {background-color: #1a4c6d;
+                  height: 25px;
+                  width: 300px;
+                  border-radius: .75rem;}
+       .progressTracker {width: 300px;}
+    </style>
+  </head>
+  <body>
+      <div class="progressTracker">
+        <div id="label-mine" class="label">My Extra Life Goal</div>
+        <div id="label-team" class="label">Team Extra Life Goal</div>
+        <div id="progress"></div>
+        <div class="progress">
+          <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        let pathParam = window.location.search.substring(1);
+        let myId = '';
+        let teamId = '';
+        let param = pathParam.split("=");
+        let url = '';
+        if (param[0] == "participantID") {
+          myId = param[1];
+          let myUrl = 'https://www.extra-life.org/api/1.3/participants/' + myId;
+          url = myUrl;
+          document.getElementById("label-team").hidden=true;
+        } else if (param[0] == "teamID") {
+          teamId = param[1];
+          let teamUrl = 'https://www.extra-life.org/api/1.3/teams/' + teamId;
+          url = teamUrl;
+          document.getElementById("label-mine").hidden=true;
+        }
+
+        function reload() {
+          fetch(url)
+            .then(response => response.json())
+            .then(data => {
+              let raised = data.sumDonations;
+              let goal = data.fundraisingGoal;
+              document.getElementById("progress").innerHTML = "$" + raised + "/$" + goal;
+
+              let percent = Math.round(raised / goal * 100);
+              document.getElementById("progressBar").innerHTML = percent + "%";
+              document.getElementById("progressBar").style.width = percent + "%";
+
+            });
+          setTimeout(function() {
+                  reload();
+                } ,60000);
+        } reload();
+      </script>
+  </body>
+</html>
