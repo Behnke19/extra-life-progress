@@ -2,6 +2,7 @@
   --progress-color-background: #1a4c6d;
   --progress-color: #26c2eb;
   --label-color: #1a4c6d;
+  --background-color: #cbcbcb;
 }
 
 .label {
@@ -38,6 +39,6 @@
 .progressTracker {
   width: 310px;
   height: 60px;
-  background-color: #cbcbcb;
+  background-color: var(--background-color);
   border-radius: .5rem;
 }

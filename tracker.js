@@ -31,6 +31,14 @@ let percentTextColor = urlParams.get("percentTextColor");
 if (percentTextColor) {
   document.getElementById("progressBar").style.color = "#" + percentTextColor;
 }
+let backgroundColor = urlParams.get("backgroundColor");
+if (backgroundColor) {
+  root.style.setProperty("--background-color", "#" + backgroundColor);
+}
+let backgroundOff = urlParams.get("noBackground");
+if (backgroundOff) {
+  root.style.setProperty("--background-color", "none");
+}
 
 function reload() {
   fetch(url)
@@ -41,8 +49,9 @@ function reload() {
       document.getElementById("progress").innerHTML = "$" + raised + "/$" + goal;
 
       let percent = Math.round(raised / goal * 100);
-      document.getElementById("progressBar").innerHTML = percent + "%";
-      document.getElementById("progressBar").style.width = percent + "%";
+      let progressBar = document.getElementById("progressBar");
+      progressBar.innerHTML = percent + "%";
+      progressBar.style.width = percent + "%";
 
     });
   setTimeout(function() {
