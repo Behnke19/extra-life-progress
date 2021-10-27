@@ -10,7 +10,7 @@ To track the progress of a team, set the teamID parameter to the team's id. This
 The bar will update every 60 seconds.
 
 ## Customizing The style
-The appearance of the progress tracker can be customized using additional url parameters. The only difference between the team and individual trackers is the label. The parameters you can use to customize the look are detailed below. In each example the color will be set to a dark green so it is easy to see what changed.
+The appearance of the progress tracker can be customized using additional url parameters. The only difference between the team and individual trackers is the label. The parameters you can use to customize the look are detailed below. In each example the color will be set to a dark green so it is easy to see what changed.  
 **NOTE** For all the color ones a hex color code should be provided without the '#' on the front.
 ### Default Individual Goal Style
 ![alt text](images/default.png)
