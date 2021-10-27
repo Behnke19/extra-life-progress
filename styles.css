@@ -1,13 +1,43 @@
-.label {display: inline;
-        font-family: Nunito, sans-serif;
-        color: #1a4c6d;}
-#progress {display: inline;
-           float: right;
-           font-family: Nunito, sans-serif;
-           color: #1a4c6d;}
-#progressBar {background-color: #26c2eb;}
-.progress {background-color: #1a4c6d;
-           height: 25px;
-           width: 300px;
-           border-radius: .75rem;}
-.progressTracker {width: 300px;}
+:root {
+  --progress-color-background: #1a4c6d;
+  --progress-color: #26c2eb;
+  --label-color: #1a4c6d;
+}
+
+.label {
+  display: inline;
+  font-family: Nunito, sans-serif;
+  color: var(--label-color);
+}
+
+.labels {
+  width: 300px;
+  padding-top: 2px;
+  margin: auto;
+}
+
+#progress {
+  display: inline;
+  float: right;
+  font-family: Nunito, sans-serif;
+  color: var(--label-color);
+}
+
+#progressBar {
+  background-color: var(--progress-color);
+}
+
+.progress {
+  background-color: var(--progress-color-background);
+  height: 25px;
+  width: 300px;
+  border-radius: .75rem;
+  margin: auto;
+}
+
+.progressTracker {
+  width: 310px;
+  height: 60px;
+  background-color: #cbcbcb;
+  border-radius: .5rem;
+}
