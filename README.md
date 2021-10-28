@@ -49,4 +49,4 @@ Add a url parameter called percentTextColor and set it to a hex color code.
 ![alt text](images/percent.png)
 
 ## Using The Progress Bar On Stream
-Simply add a browser source with your custom URL to your stream tool of choice (I use OBS) and set the width to 310px and height to 60px.  
+Simply add a browser source with your custom URL to your stream tool of choice (I use OBS) and set the width to 510px and height to 80px.  
